@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Gen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="headline">
+        <h2>Quote of the day!</h2>
+    </div>
+    <div class="q-container" id="q-container">
+        <div class="inner-text">
+            <!-- <i class="fas fa-quote-left"></i> -->
+            <span id="quote"></span>
+        </div>
+        <div class="author">
+            -&nbsp;<span id="author"></span>&nbsp;-
+        </div>
+        <div class="buttons">
+            <button class="quote-btn" id="quote-btn" title="Get new quote!">
+                <i class="fas fa-comment-dots"></i>
+            </button>
+            <button class="twitter-btn" id="twtr" title="Tweet this!">
+                <i class="fab fa-twitter"></i>
+            </button>
+        </div>
+    </div>
+    <div class="loader" id="loader"></div> 
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
