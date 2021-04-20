@@ -1,17 +1,24 @@
 let quotesBank = [];
-const quoteBtn = document.getElementById('quote-btn');
-const twitterBtn = document.getElementById('twtr');
-const quoteHTML = document.getElementById('quote');
-const authorHTML = document.getElementById('author');
-const loader = document.getElementById('loader');
-const quoteCont = document.getElementById('q-container');
+const domNodes = {
+quoteBtn: document.getElementById('quote-btn'),
+twitterBtn: document.getElementById('twtr'),
+quoteHTML: document.getElementById('quote'),
+authorHTML: document.getElementById('author'),
+loader: document.getElementById('loader'),
+quoteCont: document.getElementById('q-container'),
+
+}
+
+
 
 // Loader
 function loading() {
+    const {quoteCont, loader } = domNodes
     loader.hidden = false;
     quoteCont.hidden = true;
 }
 function loaded() {
+    const {quoteCont, loader } = domNodes
     if (!loader.hidden) {
         loader.hidden = true;
         quoteCont.hidden = false;
@@ -20,6 +27,10 @@ function loaded() {
 
 // Get single Quote
 function newQuote() {
+    // const quoteHML = domNodes.quoteHTML
+    // const authorHTML = domNodes.authorHTML
+    const { quoteHTML, authorHTML } = domNodes
+
     const quote = quotesBank[Math.floor(Math.random() * quotesBank.length)];
     quoteHTML.innerText = quote.text;
     if (quote.author === null) {
@@ -45,6 +56,7 @@ async function getQuotes() {
 
 // Tweet Quote
 function tweetQuote() {
+    const {quoteHTML, authorHTML} = domNodes
     const quote = quoteHTML.innerText;
     const author = authorHTML.innerText;
     const twitterUrl = `https://twitter.com/intent/tweet?text=${quote} - ${author}`;
@@ -52,6 +64,6 @@ function tweetQuote() {
 }
 
 //On Load
-quoteBtn.addEventListener("click", newQuote);
-twitterBtn.addEventListener("click", tweetQuote);
+domNodes.quoteBtn.addEventListener("click", newQuote);
+domNodes.twitterBtn.addEventListener("click", tweetQuote);
 getQuotes();
